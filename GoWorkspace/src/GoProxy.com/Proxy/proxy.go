@@ -11,14 +11,7 @@ import (
 	"strconv"
 )
 
-type MyResponseWriter struct {
-	http.ResponseWriter
-	buf *bytes.Buffer
-}
 
-func (mrw *MyResponseWriter) Write(p []byte) (int, error) {
-	return mrw.buf.Write(p)
-}
 func handleHTTPS(w http.ResponseWriter, r *http.Request) {
 	log.Println("URL: ", r.RequestURI, " METHOD: ", r.Method)
 	http.Error(w, "https not supported", http.StatusBadRequest)
